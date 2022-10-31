@@ -26,17 +26,17 @@ The user’s name
 * Tapping the _Log Out_ button logs the user out and returns them to the initial “Logged out” screen.
 
 
-## Getting Started
+## How to Run the App
 
 ### Prerequisities
 
 You’ll need the following to build the app:
 
-### 1. An Auth0 account
+#### 1. An Auth0 account
 
 The app uses Auth0 to authenticate users, meaning you need an Auth0 account. You can <a href="https://auth0.com/signup" data-amp-replace="CLIENT_ID" data-amp-addparams="anonId=CLIENT_ID(cid-scope-cookie-fallback-name)">sign up for a free account</a>, which lets you add login/logout to 10 applications, with support for 7,000 users and unlimited logins — plenty for your prototyping, development, and testing needs.
 
-### 2. An Android development setup
+#### 2. An Android development setup
 
 To develop applications for Android, make sure you have the following, in the order given below:
 
@@ -52,6 +52,18 @@ To develop applications for Android, make sure you have the following, in the or
 		3. The _System Image_ window will appear, and you’ll see a list of Android versions. Select _S_ (API 31, also known as Android 12.0). If you see a _Download_ link beside R, click it, wait for the OS to download, then click the _Finish_ button. Then click the _Next_ button.
 		4. The _Android Virtual Device (AVD)_ window will appear. The _AVD Name_ field should contain _Pixel 3a API 31_, the two rows below it should have the titles _Pixel 3a_ (a reasonable “representative” phone, released three years ago at the time of writing) and _S_, and in the _Startup orientation_ section, _Portrait_ should be selected. Click the _Finish_ button.
 		5. You will be back at the _Your Virtual Devices_ window. The list will now contain _Pixel 3a API 31_, and that device will be available to you when you run the app.
+
+
+### Installing and running the app
+
+1. Clone the repo: git clone https://github.com/auth0-blog/gjetpack-compose-authentication.git
+2. Log into the Auth0 dashboard, select Applications → Applications, and register the app. The article covers this step in detail.
+3. Once you have registered the app, copy these values from the app’s Settings page in the Auth0 dashboard:
+	- Domain
+	- Client ID
+4. In the project, open the auth0.xml resource file and...
+	- Replace `*** Put your tenant’s domain here ***` with the domain you copied from the Auth0 dashboard.
+	- Replace `*** Put your app’s client ID here ***` with the domain you copied from the Auth0 dashboard.
 
 
 ## Additional Reading
