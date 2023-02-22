@@ -11,7 +11,6 @@ import com.auth0.android.authentication.AuthenticationException
 import com.auth0.android.callback.Callback
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
-import com.auth0.composelogin.User
 
 
 class MainViewModel: ViewModel() {
@@ -23,7 +22,6 @@ class MainViewModel: ViewModel() {
     private val TAG = "MainViewModel"
     private lateinit var account: Auth0
     private lateinit var context: Context
-
 
     fun setContext(activityContext: Context) {
         context = activityContext
@@ -43,13 +41,16 @@ class MainViewModel: ViewModel() {
                     // The user either pressed the “Cancel” button
                     // on the Universal Login screen or something
                     // unusual happened.
-                    Log.d(TAG, "Error occurred in login(): ${error.toString()} ")
+                    Log.e(TAG, "Error occurred in login(): $error")
                 }
 
                 override fun onSuccess(result: Credentials) {
                     // The user successfully logged in.
                     val idToken = result.idToken
+
+                    // TODO: 🚨 REMOVE BEFORE GOING TO PRODUCTION!
                     Log.d(TAG, "ID token: $idToken")
+
                     user = User(idToken)
                     userIsAuthenticated = true
                     appJustLaunched = false
@@ -66,12 +67,12 @@ class MainViewModel: ViewModel() {
 
                 override fun onFailure(error: AuthenticationException) {
                     // For some reason, logout failed.
-                    Log.d(TAG, "Error occurred in logout(): ${error.toString()} ")
+                    Log.e(TAG, "Error occurred in logout(): $error")
                 }
 
                 override fun onSuccess(result: Void?) {
                     // The user successfully logged out.
-                    user= User()
+                    user = User()
                     userIsAuthenticated = false
                 }
 

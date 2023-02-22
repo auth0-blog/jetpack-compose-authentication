@@ -24,13 +24,10 @@ import com.auth0.jetpackcomposelogin.ui.theme.JetpackComposeLoginTheme
 
 
 class MainActivity : ComponentActivity() {
-
     private val mainViewModel: MainViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         mainViewModel.setContext(this)
 
         setContent {
@@ -58,7 +55,7 @@ fun MainView(
     ) {
         // Title
         // -----
-        val title = if (viewModel.userIsAuthenticated) {
+        val Title = if (viewModel.userIsAuthenticated) {
             stringResource(R.string.logged_in_title)
         } else {
             if (viewModel.appJustLaunched) {
@@ -68,7 +65,7 @@ fun MainView(
             }
         }
         Title(
-            text = title
+            text = Title
         )
 
         // User info
